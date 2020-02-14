@@ -22,8 +22,8 @@
   - name: Extract Tomcat
     command: "tar zxf /opt/SP/apps/tomcat.tar.gz  -C /opt/SP/apps/tomcat --strip-components 1"
 
-  - name: Copy Index Page Files
-    copy: src=templates/apps dest=/opt/SP/apps/tomcat/webapps/ mode=0644
+  #- name: Copy Index Page Files
+   # copy: src=templates/apps dest=/opt/SP/apps/tomcat/webapps/ mode=0644
     notify: 
     - Restart Tomcat
 
@@ -32,6 +32,8 @@
 
   - name: Copy Petclinic Project War Files
     copy: src=templates/petclinic.war dest=/opt/SP/apps/tomcat/webapps/ mode=0644
+    notify: 
+    - Restart Tomcat
 
   handlers:
   - name: Restart Tomcat
