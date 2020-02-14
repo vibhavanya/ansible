@@ -3,7 +3,7 @@ node {
    git 'https://github.com/vibhavanya/ansible.git'
   }
   
-  stage('Geting Ready For Ansible') {
+  stage('Downloading artifact') {
     def server= Artifactory.server 'Artifactory'
         def downloadSpec = """{
             "files": [{
@@ -11,8 +11,12 @@ node {
             "target": "/root/artifacts/" }]
         }"""
     server.download(downloadSpec)  
-  sh label: 'Jenkins', script: "echo '<h1> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>' > tomcat/templates/apps/index.html"
  }
+ 
+  stage('Geting Ready For Ansible') {
+		sh label: 'Docker', script: 'cp -rf target/*.war /root/capstone/ansible/tomcat/templates/'
+  sh label: 'Jenkins', script: "echo '<h1> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>' > tomcat/templates/apps/index.html"
+	}
  
   def project_ansible="tomcat"
   dir(project_ansible) { 
