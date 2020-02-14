@@ -17,7 +17,6 @@ dir(ppath) {
  stage('check') {
  echo "Hello";
  sh 'ls -a'
- input "proceed?"
  }
 
   stage('Geting Ready For Ansible') {
@@ -31,7 +30,7 @@ dir(ppath) {
   stage('Prod Deployment on AWS'){
   sh 'pwd';
   sh 'ls -a'
-  input "wait"
+  sh 'cat /root/.jenkins/workspace/terraform/jenkins-ci.ini'
   sh label: 'terraform', script: 'ansible-playbook -i /root/.jenkins/workspace/terraform/jenkins-ci.ini -u ubuntu --key /root/.ssh/inkey.pem web-playbook.yaml'
      } 
    }
