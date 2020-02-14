@@ -1,6 +1,6 @@
 ---
 
-- hosts: 'web'
+- hosts: 'jenkins-ci'
   become: yes
   tasks:
   - name: Install Apache2 Packages 
