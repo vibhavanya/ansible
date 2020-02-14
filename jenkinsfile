@@ -16,7 +16,7 @@ node {
 dir(ppath) {
  stage('check') {
  echo "Hello"
- echo ls -a
+ echo ls
  input "proceed?"
  }
 }
