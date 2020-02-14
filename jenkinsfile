@@ -15,8 +15,8 @@ node {
  def ppath = "/root/artifacts/"
 dir(ppath) {
  stage('check') {
- echo "Hello"
- sh ls
+ echo "Hello";
+ ls; 
  input "proceed?"
  }
 }
