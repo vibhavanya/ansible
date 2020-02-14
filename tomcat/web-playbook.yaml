@@ -1,6 +1,6 @@
 ---
 
-- hosts: 'web'
+- hosts: all
   become: yes
   tasks:
   - name: Install Apache2 Packages 
