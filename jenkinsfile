@@ -28,7 +28,7 @@ dir(ppath) {
   def project_ansible="tomcat"
   dir(project_ansible) { 
   stage('Prod Deployment on AWS'){
-  sh label: 'terraform', script: 'ansible-playbook -i /root/.jenkins/workspace/terraform/jenkins-ci.ini -u ubuntu --key /root/.ssh/inkey.pem web-playbook.yaml'
+  sh label: 'terraform', script: 'ansible-playbook -i /root/.jenkins/workspace/terraform/jenkins-ci.ini -u ubuntu --key /root/.ssh/inkey.pem ./tomcat/web-playbook.yaml'
      } 
    }
 }
