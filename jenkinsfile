@@ -14,7 +14,7 @@ node {
   sh label: 'Jenkins', script: "echo '<h1> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>' > tomcat/templates/apps/index.html"
  }
  
-  def project_ansible="ansible/tomcat/"
+  def project_ansible="tomcat"
   dir(project_ansible) { 
   stage('Prod Deployment on AWS'){
   sh label: 'terraform', script: 'ansible-playbook -i /root/.jenkins/workspace/terraform/jenkins-ci.ini -u ubuntu --key /root/.ssh/inkey.pem web-playbook.yaml'
