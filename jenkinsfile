@@ -15,7 +15,7 @@ node {
  
  stage('check') {
  echo "Hello"
- pwd
+ echo pwd
  input "proceed?"
  }
   stage('Geting Ready For Ansible') {
