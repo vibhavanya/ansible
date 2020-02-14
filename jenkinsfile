@@ -14,7 +14,7 @@ node {
  }
  
   stage('Geting Ready For Ansible') {
-		sh label: 'Docker', script: 'cp -rf artifacts/*.war /root/capstone/ansible/tomcat/templates/'
+		sh label: 'Docker', script: 'cp -rf /root/artifacts/*.war /root/capstone/ansible/tomcat/templates/'
   sh label: 'Jenkins', script: "echo '<h1> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>' > tomcat/templates/apps/index.html"
 	}
  
