@@ -14,7 +14,8 @@ node {
  }
  
  stage('check') {
- ls -a
+ echo "Hello"
+ ls
  input "proceed?"
  }
   stage('Geting Ready For Ansible') {
