@@ -16,7 +16,7 @@ node {
 dir(ppath) {
  stage('check') {
  echo "Hello";
- sh 'mkdir target'
+ sh 'ls -a'
  input "proceed?"
  }
 
