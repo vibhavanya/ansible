@@ -7,7 +7,7 @@ node {
     def server= Artifactory.server 'Artifactory'
         def downloadSpec = """{
             "files": [{
-            "pattern": "petclinic/*.war",
+            "pattern": "vibha1/petclinic.war",
             "target": "/root/artifacts/" }]
         }"""
     server.download(downloadSpec)  
