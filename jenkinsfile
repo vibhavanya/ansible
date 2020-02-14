@@ -25,7 +25,7 @@ dir(ppath) {
   //sh label: 'Jenkins', script: "echo '<h1> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>' > tomcat/templates/apps/index.html"
 	}
  
-  def project_ansible="tomcat"
+  def project_ansible="/"
   dir(project_ansible) { 
   stage('Prod Deployment on AWS'){
   sh 'pwd';
