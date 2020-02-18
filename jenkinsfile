@@ -1,4 +1,7 @@
 node { 
+stage('Git-Checkout') {
+	git 'https://github.com/vibhavanya/ansible.git'
+	}
   stage('Downloading artifact') {
     def server= Artifactory.server 'Artifactory'
         def downloadSpec = """{
