@@ -21,15 +21,10 @@ stage('Git-Checkout') {
 	}
 	
  
-  def project_ansible="tomcat"
-  dir(project_ansible) { 
+   
   stage('Prod Deployment on AWS'){
-  sh 'pwd';
-  sh 'ls -a'
-  sh 'cat /root/.jenkins/workspace/terraform/jenkins-ci.ini'
-  
   sh label: 'terraform', script: 'ansible-playbook -i /root/.jenkins/workspace/capstone-terraform/jenkins-ci.ini -u ubuntu --key /root/.ssh/inkey.pem web-playbook.yaml'
-     } 
+     
    }
 
 }
