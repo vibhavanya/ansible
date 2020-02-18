@@ -16,7 +16,7 @@ dir(ppath) {
  
 
   stage('Geting Ready For Ansible') {
-		sh label: 'Docker', script: 'cp -rf /root/artifacts/*.war /root/.jenkins/workspace/ansible/tomcat/templates/'
+		sh label: 'Docker', script: 'cp -rf /root/artifacts/*.war /root/.jenkins/workspace/capstone-ansible/tomcat/templates/'
   //sh label: 'Jenkins', script: "echo '<h1> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>' > tomcat/templates/apps/index.html"
 	}
 	}
@@ -27,7 +27,7 @@ dir(ppath) {
   sh 'pwd';
   sh 'ls -a'
   sh 'cat /root/.jenkins/workspace/terraform/jenkins-ci.ini'
-  sh label: 'terraform', script: 'ansible-playbook -i /root/.jenkins/workspace/terraform/jenkins-ci.ini -u ubuntu --key /root/.ssh/inkey.pem web-playbook.yaml'
+  sh label: 'terraform', script: 'ansible-playbook -i /root/.jenkins/workspace/capstone-terraform/jenkins-ci.ini -u ubuntu --key /root/.ssh/inkey.pem web-playbook.yaml'
      } 
    }
 
