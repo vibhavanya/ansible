@@ -7,16 +7,13 @@ stage('Git-Checkout') {
         def downloadSpec = """{
             "files": [{
             "pattern": "vibha1/petclinic.war",
-            "target": "/root/artifacts/" }]
+            "target": "artifacts/" }]
         }"""
     server.download(downloadSpec)  
  }
- def ppath = "/root/artifacts/"
+ def ppath = "artifacts/"
 dir(ppath) {
- stage('check') {
- echo "Hello";
- sh 'ls -a'
- }
+ 
 
   stage('Geting Ready For Ansible') {
 		sh label: 'Docker', script: 'cp -rf /root/artifacts/*.war /root/.jenkins/workspace/ansible/tomcat/templates/'
